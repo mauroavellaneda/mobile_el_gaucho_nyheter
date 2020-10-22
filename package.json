@@ -6,8 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "cypress": "start-server-and-test start:silent http://localhost:19002/ cy:open",
-    "start:silent": "BROWSER=none PORT=19002 expo start",
+    "cypress": "start-server-and-test start:silent http://localhost:19006/ cy:open",
+    "start:silent": "BROWSER=none PORT=19006 expo start",
     "cy:open": "cypress open"
   },
   "dependencies": {
