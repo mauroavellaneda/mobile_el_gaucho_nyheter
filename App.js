@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 const App = () => {
   return (
     <View>
-      <Text>Welcome to El Gaucho nyheter</Text>
+      <Text id="header">Welcome to El Gaucho nyheter</Text>
     </View>
   );
 };
