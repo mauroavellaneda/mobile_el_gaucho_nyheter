@@ -1,10 +1,12 @@
 import React from "react";
 import { Text, View } from "react-native";
+import Header from './src/components/Header';
 
 const App = () => {
   return (
     <View>
-      <Text id="header">Welcome to El Gaucho nyheter</Text>
+      <Header />
+      <Text id="header">Welcome</Text>
     </View>
   );
 };
