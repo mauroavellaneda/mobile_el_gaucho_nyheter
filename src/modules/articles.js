@@ -2,9 +2,17 @@ import axios from "axios";
 
 const Articles = {
   async index() {
-    let result = await axios.get("/articles");
-    return result.data.articles;
+    let response;
+    try {
+      let result = await axios.get(`/articles`);
+      response = result.data.articles;
+      debugger
+    } catch (error) {
+      console.log(error);
+    } finally {
+      return response;
+    }
   },
 };
 
-export {Articles};
+export default Articles;
