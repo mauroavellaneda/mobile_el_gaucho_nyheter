@@ -1,7 +1,6 @@
 import React from "react";
 import { registerRootComponent } from "expo";
 import App from "./App";
-import axios from "axios";
 
 let apiUrl;
 if (process.env.NODE_ENV === "production") {
