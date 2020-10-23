@@ -5,7 +5,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "cypress": "start-server-and-test start:silent http://localhost:19006/ cy:open",
+    "start:silent": "BROWSER=none PORT=19006 expo start",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "expo": "~39.0.2",
@@ -16,7 +19,9 @@
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "~7.9.0",
+    "cypress": "^5.4.0",
+    "start-server-and-test": "^1.11.5"
   },
   "private": true
 }
