@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import Auth from "../modules/authentication";
+
 const Login = () => {
   const auth = new Auth({ host: "http://localhost:3000/api/v1" });
   const [email, setEmail] = useState("");
