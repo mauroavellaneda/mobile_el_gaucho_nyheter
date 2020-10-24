@@ -6,8 +6,6 @@ const Articles = {
     try {
       let result = await axios.get(`/articles`);
       return (response = result.data.articles);
-      
-      
     } catch (error) {
       console.log(error);
     }

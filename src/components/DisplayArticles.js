@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, FlatList } from "react-native";
+import { View, FlatList, StyleSheet } from "react-native";
 import Articles from "../modules/articles";
 import ListArticles from "./ListArticles";
 
@@ -23,12 +23,17 @@ const DisplayArticles = () => {
           return <ListArticles article={item} />;
         }}
       />
-
-      <Text>hello</Text>
     </View>
   );
 };
 
-export default DisplayArticles;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#1A263E",
+    alignItems: "center",
+    marginTop: "20%",
+  },
+});
 
-const styles = StyleSheet.create({ container: { backgroundColor: "blue" } });
+export default DisplayArticles;
