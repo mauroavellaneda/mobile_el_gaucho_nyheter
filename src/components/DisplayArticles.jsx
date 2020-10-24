@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, FlatList, StyleSheet } from "react-native";
+import { View, FlatList, StyleSheet, Text } from "react-native";
 import Articles from "../modules/articles";
 import ListArticles from "./ListArticles";
+import { message } from './Login';
 
-const DisplayArticles = () => {
-  const [articles, setArticles] = useState([]);
+const DisplayArticles = (props) => {
+  const [articles, setArticles, message] = useState([]);
 
   useEffect(() => {
     const getArticlesIndex = async () => {
@@ -16,6 +17,7 @@ const DisplayArticles = () => {
 
   return (
     <View style={styles.container}>
+      <Text>{message}</Text>
       <FlatList
         data={articles}
         keyExtractor={(article) => article.id.toString()}

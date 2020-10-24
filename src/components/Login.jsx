@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import Auth from "../modules/authentication";
 
-const Login = () => {
+const Login = (props) => {
   const auth = new Auth({ host: "http://localhost:3000/api/v1" });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +15,6 @@ const Login = () => {
   };
   return (
     <View>
-      <Text>{message}</Text>
       <TextInput
         editable
         placeholder="email"
@@ -29,11 +28,12 @@ const Login = () => {
         onChangeText={(text) => setPassword(text)}
         style={{ height: 40, borderColor: "pink", borderWidth: 2 }}
       />
-      <Button title="Login" color="#841584" onPress={() => logInHandler()} />
+      <Button title="Login" color="#841584" onPress={() => props.navigation.navigate("first page", {customParameter: {message}.toString() })} />
     </View>
   );
 };
 export default Login;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
