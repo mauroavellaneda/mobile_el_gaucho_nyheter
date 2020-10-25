@@ -3,7 +3,7 @@ import { View, FlatList, StyleSheet, Text } from "react-native";
 import Articles from "../modules/articles";
 import ListArticles from "./ListArticles";
 
-const DisplayArticles = (props) => {
+const DisplayArticles = (props, {navigation}) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const DisplayArticles = (props) => {
         data={articles}
         keyExtractor={(article) => article.id.toString()}
         renderItem={({ item }) => {
-          return <ListArticles article={item} />;
+          return <ListArticles article={item} navigation={navigation} />;
         }}
       />
     </View>
@@ -37,11 +37,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     color: "white",
   },
-  welcomeText: { 
+  welcomeText: {
     margin: 5,
     color: "#0059b3",
-    fontSize: 20
-   },
+    fontSize: 20,
+  },
 });
 
 export default DisplayArticles;

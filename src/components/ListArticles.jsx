@@ -1,21 +1,37 @@
 import React from "react";
-import { View, StyleSheet, Text, Dimensions, Image } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Dimensions,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 
 const ListArticles = (props) => {
   return (
     <View style={styles.card}>
-      <Text style={styles.title} id={`article-title-${props.article.id}`}>
-        {props.article.title}
-      </Text>
-      <Text style={styles.lead} id={`article-lead-${props.article.id}`}>
-        {props.article.lead}
-      </Text>
+      <TouchableOpacity
+        key={props.article.id}
+        onPress={() => {
+          props.navigation.navigate("Article", {
+            articleId: props.article.id,
+          });
+        }}
+      >
+        <Text style={styles.title} id={`article-title-${props.article.id}`}>
+          {props.article.title}
+        </Text>
+        <Text style={styles.lead} id={`article-lead-${props.article.id}`}>
+          {props.article.lead}
+        </Text>
 
-      <Image
-        source={{ uri: props.article.image }}
-        style={styles.image}
-        testID={`article-image-${props.article.id}`}
-      />
+        <Image
+          source={{ uri: props.article.image }}
+          style={styles.image}
+          testID={`article-image-${props.article.id}`}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
