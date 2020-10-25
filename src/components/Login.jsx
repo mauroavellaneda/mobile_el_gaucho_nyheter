@@ -60,7 +60,7 @@ const Login = (props) => {
         onPress={() => logInHandler()}
         style={styles.button}
       />
-      {message && <Text>{message}</Text>}
+      <Text style={styles.errorMessage}>{message}</Text>
     </View>
   );
 };
@@ -104,4 +104,5 @@ const styles = StyleSheet.create({
     height: 100,
     width: Dimensions.get("window").width,
   },
+  errorMessage: { color: "red", fontSize: 20 },
 });
