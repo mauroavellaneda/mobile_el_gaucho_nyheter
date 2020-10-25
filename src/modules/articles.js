@@ -12,8 +12,8 @@ const Articles = {
   },
   async show(articleId) {
     try {
-      let result = await axios.get(`/articles/${articleId}`);
-      return (response = result.data.article);
+      const result = await axios.get(`/articles/${articleId}`);
+      return result.data.article;
     } catch (error) {
       console.log(error);
     }

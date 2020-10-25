@@ -14,7 +14,7 @@ const ListArticles = (props) => {
       <TouchableOpacity
         key={props.article.id}
         onPress={() => {
-          props.navigation.navigate("Article", {
+          props.navigation.navigate("SingleArticle", {
             articleId: props.article.id,
           });
         }}

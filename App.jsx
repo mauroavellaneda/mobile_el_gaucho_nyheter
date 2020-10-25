@@ -15,7 +15,7 @@ const App = () => {
         <Stack.Screen name="Latest news" component={DisplayArticles} />
         <Stack.Screen
           options={{ headerShown: false }}
-          name="Article"
+          name="SingleArticle"
           component={SingleArticle}
         />
       </Stack.Navigator>

@@ -3,7 +3,7 @@ import { View, FlatList, StyleSheet, Text } from "react-native";
 import Articles from "../modules/articles";
 import ListArticles from "./ListArticles";
 
-const DisplayArticles = (props, {navigation}) => {
+const DisplayArticles = ({ route, navigation }) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -16,9 +16,7 @@ const DisplayArticles = (props, {navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>
-        {props.route.params.customParameter}
-      </Text>
+      <Text style={styles.welcomeText}>{route.params.customParameter}</Text>
       <FlatList
         data={articles}
         keyExtractor={(article) => article.id.toString()}
