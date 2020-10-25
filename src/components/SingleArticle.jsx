@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Articles from "../modules/articles";
-import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimensions,
+  Button,
+} from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
-const SingleArticle = ({ route }) => {
+const SingleArticle = ({ route, navigation }) => {
   const [article, setArticle] = useState({});
 
   useEffect(() => {
@@ -17,52 +25,62 @@ const SingleArticle = ({ route }) => {
     getSingleArticle();
   }, [route]);
   return (
-    <View key={article.id}>
-      <Text style={styles.title} id={`article-title-${article.id}`}>
-        {article.title}
-      </Text>
-      <Text style={styles.lead} id={`article-lead-${article.id}`}>
-        {article.lead}
-      </Text>
+    <ScrollView>
+      <View key={article.id} style={styles.singleArticle}>
+        <Text style={styles.title} id={`article-title-${article.id}`}>
+          {article.title}
+        </Text>
+        <Text style={styles.lead} id={`article-lead-${article.id}`}>
+          {article.lead}
+        </Text>
 
-      <Image
-        source={{ uri: article.image }}
-        style={styles.image}
-        testID={`article-image-${article.id}`}
-      />
-      <Text style={styles.content} id={`article-content-${article.id}`}>
-        {article.content}
-      </Text>
-    </View>
+        <Image
+          source={{ uri: article.image }}
+          style={styles.image}
+          testID={`article-image-${article.id}`}
+        />
+        <Text style={styles.content} id={`article-content-${article.id}`}>
+          {article.content}
+        </Text>
+        <Button
+          color="#0059b3"
+          title="Go Back"
+          onPress={() => navigation.navigate("Latest news")}
+        ></Button>
+      </View>
+    </ScrollView>
   );
 };
 
 export default SingleArticle;
 
 const styles = StyleSheet.create({
-  card: {
-    position: "relative",
-    width: Dimensions.get("window").width,
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 8,
-    marginBottom: 40,
-    backgroundColor: "rgba(0,0,0,0.2)",
+  singeArticle: {
+    alignItems: "center",
+    backgroundColor: "#1A263E",
   },
+
   title: {
+    marginTop: 80,
+    backgroundColor: "#1A263E",
     color: "white",
     fontSize: 26,
-    paddingBottom: 10,
+    padding: 10,
   },
   lead: {
+    backgroundColor: "#1A263E",
     color: "white",
+    fontSize: 18,
+    paddingBottom: 20,
+    paddingLeft: 10,
   },
   content: {
+    backgroundColor: "#1A263E",
     color: "white",
+    padding: 10,
   },
   image: {
-    height: 100,
+    height: 200,
     width: Dimensions.get("window").width,
-    marginTop: 40,
   },
 });

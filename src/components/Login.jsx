@@ -59,6 +59,7 @@ const Login = (props) => {
         title="Login"
         onPress={() => logInHandler()}
         style={styles.button}
+        color="#0059b3"
       />
       <Text style={styles.errorMessage}>{message}</Text>
     </View>
@@ -83,10 +84,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     backgroundColor: "#1A263E",
     color: "white",
-  },
-  button: {
-    color: "#0059b3",
-    paddingTop: 101,
   },
   firstText: {
     marginBottom: 100,
