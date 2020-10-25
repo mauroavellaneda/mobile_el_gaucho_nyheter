@@ -99,9 +99,8 @@ class Auth {
         );
         this.setRoles(validateResponse);
         resolve(validateResponse);
-      } catch (err) {
-        // this.debugIfActive(err.response);
-        reject(err);
+      } catch (error) {
+        resolve("Invalid credentials. Please try again");
       }
     });
   }
@@ -116,10 +115,8 @@ class Auth {
         const logOutResponse = await axios.delete(this.signOutUrl, {
           headers: { ...lastSession },
         });
-        // this.debugIfActive(logOutResponse);
         resolve(logOutResponse.data);
       } catch (err) {
-        // this.debugIfActive(err.response);
         resolve("Error when delete server session but local was deleted");
       }
     });

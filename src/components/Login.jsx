@@ -15,7 +15,7 @@ const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  
+
   const logInHandler = async () => {
     try {
       let response = await auth.signIn(email, password);
@@ -24,9 +24,11 @@ const Login = (props) => {
         customParameter: `You are logged in with: ${response.data.uid}`,
       });
     } catch (error) {
-      return error.response.data.errors[0];
+      let response = await auth.signIn(email, password);
+      setMessage(response);
     }
   };
+
   return (
     <View style={styles.container}>
       <Image
