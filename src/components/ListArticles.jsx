@@ -7,7 +7,7 @@ const ListArticles = (props) => {
       <Text style={styles.title} id={`article-title-${props.article.id}`}>
         {props.article.title}
       </Text>
-      <Text style={styles.lead} id={`article-lead-${props.article.id}`} >
+      <Text style={styles.lead} id={`article-lead-${props.article.id}`}>
         {props.article.lead}
       </Text>
 
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   lead: {
-    color: "white"
+    color: "white",
   },
   image: {
     height: 100,

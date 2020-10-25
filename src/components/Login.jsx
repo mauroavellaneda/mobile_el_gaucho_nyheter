@@ -15,11 +15,17 @@ const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  
   const logInHandler = async () => {
     try {
       let response = await auth.signIn(email, password);
       setMessage(response.data.uid);
-    } catch (error) {}
+      props.navigation.navigate("Latest news", {
+        customParameter: `You are logged in with: ${response.data.uid}`,
+      });
+    } catch (error) {
+      return error.response.data.errors[0];
+    }
   };
   return (
     <View style={styles.container}>
@@ -49,13 +55,10 @@ const Login = (props) => {
 
       <Button
         title="Login"
-        onPress={() =>
-          props.navigation.navigate("first page", {
-            customParameter: { message }.toString(),
-          })
-        }
+        onPress={() => logInHandler()}
         style={styles.button}
       />
+      {message && <Text>{message}</Text>}
     </View>
   );
 };
@@ -80,7 +83,7 @@ const styles = StyleSheet.create({
     color: "white",
   },
   button: {
-    color: "#003366",
+    color: "#0059b3",
     paddingTop: 101,
   },
   firstText: {
@@ -90,7 +93,7 @@ const styles = StyleSheet.create({
     fontFamily: "serif",
   },
   secondText: {
-    color: "white",
+    color: "#0059b3",
     marginBottom: 20,
     fontSize: 17,
   },
